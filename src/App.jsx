@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <Header />
-      {searchQuery ? <SearchResult /> : <PeriodicTable />}
+      {searchQuery ? <SearchResult /> : <PeriodicTable elements={elements} />}
     </>
   );
 }
