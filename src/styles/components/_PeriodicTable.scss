@@ -1,53 +1,40 @@
 .periodic-table {
-    display: grid;
-    grid-template-columns: repeat(18, 1fr); // Adjust for the table's layout
-    gap: 0.5rem;
+  width: 100%; // Stretch to container width
+  max-width: 1200px; // Optional: Limit max width for larger screens
+  border-collapse: separate; // Allow individual borders
+  border-spacing: 0.5rem; // Gap between cells
+  margin: 1rem 0;
 
-    .cell {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s ease;
+  td {
+    width: 4rem; // Adjust cell size
+    height: 4rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
 
-        &.placeholder {
-            background: transparent;
-            border: none;
-        }
+    &.element {
+      border: 1px solid $border-color; // Add border for element cells
+      border-radius: $cell-radius; // Rounded corners for element cells
+      background-color: transparent; // Ensure background is transparent
+      cursor: pointer;
+      transition: transform 0.2s ease;
 
-        &.spacer {
-            background: transparent;
-            border: none;
+      .symbol {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
 
-            &.row {
-                grid-row: span 0.5; // Spacer occupies half height
-            }
+      .atomic-number {
+        font-size: 0.8rem;
+      }
 
-            &.column {
-                grid-column: span 0.5; // Spacer occupies half width
-            }
-        }
-
-        &.element {
-            background: #f0f0f0;
-            cursor: pointer;
-
-            .symbol {
-                font-size: 1.2rem;
-                font-weight: bold;
-            }
-
-            .atomic-number {
-                font-size: 0.8rem;
-            }
-
-            &:hover {
-                background: #e0e0e0;
-            }
-        }
+      &:hover {
+        transform: scale(1.1); // Slight zoom on hover
+      }
     }
+
+    &.placeholder {
+      border: none; // Remove border for placeholder cells
+    }
+  }
 }

@@ -22,6 +22,7 @@ function App() {
   if (isLoading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
 
+
   return (
     <>
       <Header />
