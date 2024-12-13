@@ -6,6 +6,8 @@ import Loader from "./components/Loader";
 import Header from "./sections/Header";
 import SearchResult from "./sections/SearchResult";
 import PeriodicTable from "./sections/PeriodicTable";
+import "./styles/main.scss";
+import RadiationAnimation from "./components/CloudChamberAnimation";
 
 function App() {
 
@@ -24,6 +26,7 @@ function App() {
     <>
       <Header />
       {searchQuery ? <SearchResult /> : <PeriodicTable elements={elements} />}
+      <RadiationAnimation />
     </>
   );
 }

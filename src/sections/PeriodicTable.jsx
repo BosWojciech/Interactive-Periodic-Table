@@ -3,20 +3,22 @@ import { gsap } from "gsap";
 
 const PeriodicTable = ({elements, onElementClick}) => {
 
-    const rows = 9;
+    const rows = 10;
     const columns = 18;
 
-    const grid = Array.from({ length:rows }, () => {
-        Array.from({length:columns}, () => null)
-    })
+    const grid = Array.from({ length: rows }, () => Array(columns).fill(0));
 
+    console.log(grid)
     elements.data.forEach((element) => {
         const { xpos, ypos } = element;
-        console.log(`${xpos}, ${ypos}`)
-        console.log(`Adding ${element.symbol} in array ${grid[ypos][xpos]}`)
-        grid[ypos][xpos] = element;
+        console.log(`Element: ${element.symbol} X: ${xpos}, Y: ${ypos}`)
+        grid[ypos-1][xpos-1] = element;
     })
 
+    
+    console.log({
+      grid,
+    })
 
 
 
